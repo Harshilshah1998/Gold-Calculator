@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Page</title>
+    <style>
+        h1{
+            color: black;
+            background-color: lightcoral;
+            text-decoration: underline;
+            
+        }
+        form{
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>Registration Page</h1>
+    <hr>
+    <br><br><br><br>
+    <fieldset>
+        <legend><u>Registration page</u></legend>
+        <form id="registrationpage">
+            <label>Username:</label>
+            <input type="text" id="registeruname"  required>
+            <br><br>
+            <label>Password:</label>
+            <input type="password" id="registerpassword"  required>
+            <br><br>
+            <input type="submit" value="Register">
+            <input type="reset" value="Reset">
+        </form>
+    </fieldset>
+    </center>
+    <script>
+        document.getElementById("registrationpage").addEventListener("submit", function  (event)
+         {
+            event.preventDefault();
+
+            
+            var registeruname = document.getElementById("registeruname").value;
+            var registerpassword = document.getElementById("registerpassword").value;
+
+            
+            localStorage.setItem("registeruname", registeruname);
+            localStorage.setItem("registerpassword", registerpassword);
+
+            
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+</html>

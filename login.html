@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        h1{
+            color: black;
+            background-color: lightcoral;
+            text-decoration: underline;
+            
+        }
+        form{
+            background-color: lightcoral;
+        }
+
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Login Page</h1><hr>
+    </center>
+    <br><br><br><br>
+    <center>
+        <fieldset>
+            <legend><strong><u>Login Page</u></strong></legend>
+            <form id="loginpage">
+                <br><br>
+                <label><b>Enter UserName</label>
+                <input type="text" id="loginuname" name="loginuname" placeholder="User name" required>
+                <br><br>
+                <label>Enter Password</label>&nbsp;&nbsp;
+                <input type="password" id="loginupassword" name="loginupassword"placeholder="Password" required>
+                <br><br>
+                <input type="submit" value="Login">
+                <input type="reset" value="Reset">
+                <p>If you don't have account then <a href="register.html">Register </a> here.</p>
+                <br><br>
+            </form>
+        </fieldset>
+    </center>
+
+    <script>
+        document.getElementById("loginpage").addEventListener("submit",function (event)
+        {
+            event.preventDefault();
+            var loginuname = document.getElementById("loginuname").value;
+            var loginpassword = document.getElementById("loginupassword").value;
+
+            var storeduname = localStorage.getItem("registeruname");
+            var storedpassword = localStorage.getItem("registerpassword");
+
+            if(loginuname === storeduname && loginpassword === storedpassword)
+            {
+                alert("Login successful")
+                window.location.href = "jss.html"
+            }
+            else 
+            {
+                alert("Login failed")
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSS</title>
+</head>
+
+<body style="background-color: white;">
+
+    <center>
+        <div>
+            <h1 style="background-color: lightcoral;margin: 20px;">
+                <img src="logo.jpg" alt="logo" width="15%">
+                <br>
+                <u>JSS</u>
+            </h1>
+            
+
+            <hr><br>
+                
+                <fieldset style="background-color: lightcoral; margin: 10px; ">
+                <h2><i>Welcome to JSS gold price estimation page</i></h2>
+                </fieldset>
+        </div>
+    </center>
+
+    <br>
+    <a href ="contact.html" style="color: black;margin: 20px;">Contect</a> &nbsp;&nbsp;
+    <a href ="samples.html" style="color: black;margin: 20px">Samples of Jewellers</a>&nbsp;&nbsp;
+    <a href ="login.html" style="color: black;margin: 20px">Logout</a>
+    <hr>
+    <fieldset style="background-color: lightcoral; margin:20px; ">
+        
+        <lable"><u><b>Kindly fill the below details to get the exact pricing for your item</b></u></lable>
+        <br><br><br>
+            <label>Item name</label>
+            <select id="itemname">
+                <option value="set">Set</option>
+                <option value="earring">Earings</option>
+                <option value="ring">Ring</option>
+                <option value="bangels">Bangels</option>
+                <option value="other">Other</option>
+            </select>
+            <br>
+            <br><label>Gold rate </label>
+            <input type="number" id="gr" placeholder="Enter Gold rate per/g "><br>
+            <br><label>Weight </label>
+            <input type="number" id="weight" placeholder="Enter net weight "><br>
+            <br><label>Making </label>
+            <input type="number" id="making" placeholder="Enter Making per/g "><br>
+            <br><label>GST</label>
+            <select id="gst">
+                <option value="withgst">With GST</option>
+                <option value="withoutgst">Without GST</option>
+            </select>
+            <br>
+            <br><button onclick="calculate()">Calculate</button><br>
+
+            <br><p id="output"></p>   
+    </fieldset>
+
+    <script>
+
+        function calculate()
+        {
+            var gr=document.getElementById("gr").value;
+            var weight=document.getElementById("weight").value;
+            var making=document.getElementById("making").value;
+            var gst=document.getElementById("gst").value;
+            var amount;
+            var gstamount
+            
+            if (gst === "withgst")
+            {
+                amount = gr*weight+(making*weight)
+                gstamount= amount+(amount*0.03)
+                document.getElementById("output").innerHTML = "Total Bill amount with 3% GST"+" " + gstamount
+
+            }
+            else if(gst === "withoutgst")
+            {
+                amount = gr*weight+(making*weight)
+                document.getElementById("output").innerHTML = "Total Bill amount Without GST"+" "+ amount
+            }
+            else{
+                alert("Wrong Input")
+            }
+    
+
+        }
+
+    </script>
+
+</body>
+
+
+</html>
